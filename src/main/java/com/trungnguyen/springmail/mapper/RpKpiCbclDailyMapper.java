@@ -2,7 +2,10 @@ package com.trungnguyen.springmail.mapper;
 
 import com.trungnguyen.springmail.domain.RpKpiCbclDaily;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Mapper
@@ -22,4 +25,7 @@ public interface RpKpiCbclDailyMapper {
      * @mbg.generated Sat Apr 30 18:07:22 ICT 2022
      */
     List<RpKpiCbclDaily> selectAll();
+
+    //@Select("select * from rp_kpi_cbcl_daily where day = #{day}")
+    List<RpKpiCbclDaily> selectByDay(LocalDate day);
 }

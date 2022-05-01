@@ -7,6 +7,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalUnit;
+import java.util.Date;
+import java.util.Map;
+
 @SpringBootApplication
 public class SpringMailApplication implements CommandLineRunner {
 
@@ -22,18 +28,11 @@ public class SpringMailApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		rpKpiCbclDailyMapper.selectAll().forEach(
-				e -> {
-					if (e.getCenter() != null) {
-						System.out.println(e.getCenter());
-					}
-				}
-		);
-//		emailService.sendSimpleMail("test thymleaf", "thangkhung156@gmail.com",
-//				"person.html", Map.of("persons", List.of(
-//						new Person("John", "Wick"),
-//						new Person("Tony", "Stark")
-//				)));
+		var data = rpKpiCbclDailyMapper.selectByDay(LocalDate.now().minusDays(1));
+		String day = LocalDate.now().minusDays(1).format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
+		emailService.sendSimpleMail("Kpi kbcl ngay " + day, "thangkhung156@gmail.com",
+				"kpiCbcl.html", Map.of("kpiCbclList", data, "day", day));
 	}
 
 }

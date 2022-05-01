@@ -7,14 +7,55 @@
 <body>
 <h1>Person List</h1>
 <div>
+  <p>Kpi cbl ngay ${day}</p>
   <table border="1">
     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
+      <th>Day</th>
+      <th>Center</th>
+      <th>Team</th>
+      <th>Sub_team</th>
+      <th>HANDLING_A1</th>
+      <th>HANDLING_ONTIME_A1</th>
+      <th>HANDLING_A2</th>
+      <th>HANDLING_ONTIME_A2</th>
+      <th>HANDLING_A3</th>
+      <th>HANDLING_ONTIME_A3</th>
+      <th>HANDLING_CORE</th>
+      <th>HANDLING_ONTIME_CORE</th>
+      <th>HANDLING_RAN</th>
+      <th>HANDLING_ONTIME_RAN</th>
+      <th>HANDLING_TD</th>
+      <th>HANDLING_ONTIME_TD</th>
+      <th>HANDLING_KHVIP</th>
+      <th>HANDLING_ONTIME_KHVIP</th>
+      <th>HANDLING</th>
+      <th>HANDLING_ONTIME</th>
+      <th>HANDLING_RAN_TRAIN</th>
+      <th>HANDLING_ON_RAN_TRAIN</th>
     </tr>
-    <tr th:each ="person : ${persons}">
-      <td th:utext="${person.firstName}">...</td>
-      <td th:utext="${person.lastName}">...</td>
+    <tr th:each ="kpiCbcl : ${kpiCbclList}">
+      <td th:utext="${kpiCbcl.day}">...</td>
+      <td  th:utext="${kpiCbcl.center}">...</td>
+      <td  th:utext="${kpiCbcl.team}">...</td>
+      <td th:utext="${kpiCbcl.subTeam}">...</td>
+      <td th:utext="${kpiCbcl.handlingA1}">...</td>
+      <td th:utext="${kpiCbcl.handlingOntimeA1}">...</td>
+      <td th:utext="${kpiCbcl.handlingA2}">...</td>
+      <td th:utext="${kpiCbcl.handlingOntimeA2}">...</td>
+      <td th:utext="${kpiCbcl.handlingA3}">...</td>
+      <td th:utext="${kpiCbcl.handlingOntimeA3}">...</td>
+      <td th:utext="${kpiCbcl.handlingCore}">...</td>
+      <td th:utext="${kpiCbcl.handlingOntimeCore}">...</td>
+      <td th:utext="${kpiCbcl.handlingRan}">...</td>
+      <td th:utext="${kpiCbcl.handlingOntimeRan}">...</td>
+      <td th:utext="${kpiCbcl.handlingTd}">...</td>
+      <td th:utext="${kpiCbcl.handlingOntimeTd}">...</td>
+      <td th:utext="${kpiCbcl.handlingKhvip}">...</td>
+      <td th:utext="${kpiCbcl.handlingOntimeKhvip}">...</td>
+      <td th:utext="${kpiCbcl.handling}">...</td>
+      <td th:utext="${kpiCbcl.handlingOntime}">...</td>
+      <td th:utext="${kpiCbcl.handlingRanTrain}">...</td>
+      <td th:utext="${kpiCbcl.handlingOnRanTrain}">...</td>
     </tr>
   </table>
 </div>
