@@ -28,11 +28,10 @@ public class SpringMailApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		var data = rpKpiCbclDailyMapper.selectByDay(LocalDate.now().minusDays(1));
-		String day = LocalDate.now().minusDays(1).format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-
-		emailService.sendSimpleMail("Kpi kbcl ngay " + day, "thangkhung156@gmail.com",
-				"kpiCbcl.html", Map.of("kpiCbclList", data, "day", day));
+		var day = LocalDate.of(2022, 10, 4);
+		var data = rpKpiCbclDailyMapper.selectByDay(day);
+		emailService.sendSimpleMail("Kpi kbcl ngay " + day, "trungnq@vhc.com.vn",
+				"kpiCbcl.html", Map.of("kpiCbclList", data, "day", day.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
 	}
 
 }

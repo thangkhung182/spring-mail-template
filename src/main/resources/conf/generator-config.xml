@@ -16,7 +16,7 @@
 
         <javaModelGenerator targetPackage="com.trungnguyen.springmail.domain" targetProject="src/main/java"/>
 
-        <sqlMapGenerator targetPackage="com.trungnguyen.springmail.mapper" targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="com.trungnguyen.springmail.mapper" targetProject="src/main/resources"/>
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.trungnguyen.springmail.mapper"
                              targetProject="src/main/java"/>
