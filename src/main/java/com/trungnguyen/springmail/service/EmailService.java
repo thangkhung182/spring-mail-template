@@ -4,7 +4,7 @@ package com.trungnguyen.springmail.service;
 import java.util.Map;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.InputStreamSource;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -23,6 +23,9 @@ public class EmailService {
 
     private final TemplateEngine htmlTemplateEngine;
 
+    @Value("${spring.mail.username}")
+    private String user;
+
     /* 
      * Send HTML mail (simple) 
      */
@@ -38,6 +41,7 @@ public class EmailService {
         final MimeMessage mimeMessage = this.mailSender.createMimeMessage();
         final MimeMessageHelper message = new MimeMessageHelper(mimeMessage, "UTF-8");
         message.setSubject(subject);
+        message.setFrom(user);
         message.setTo(recipientEmail);
 
         // Create the HTML body using Thymeleaf
